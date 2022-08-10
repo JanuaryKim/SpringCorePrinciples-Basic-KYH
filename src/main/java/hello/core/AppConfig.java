@@ -17,22 +17,25 @@ public class AppConfig {
 
     @Bean
     public MemberService memberService() {
-
+        System.out.println("AppConfig 내의 memberService() 메소드 호출됨!!!");
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
     public MemberRepository memberRepository() {
+        System.out.println("AppConfig 내의 memberRepository() 메소드 호출됨!!!");
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService() {
+        System.out.println("AppConfig 내의 orderService() 메소드 호출됨!!!");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
     @Bean
     public DiscountPolicy discountPolicy() {
+        System.out.println("AppConfig 내의 discountPolicy() 메소드 호출됨!!!");
         return new RateDiscountPolicy();
     }
 }
